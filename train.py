@@ -50,8 +50,7 @@ class Train:
             for data, target in tqdm_batch:
 
                 if self.args.cuda:
-                    data, target = data.cuda(async=self.args.async_loading), target.cuda(
-                        async=self.args.async_loading)
+                    data, target = data.cuda(), target.cuda()
                 data_var, target_var = Variable(data), Variable(target)
 
                 # Forward pass
@@ -102,8 +101,7 @@ class Train:
 
         for data, target in testloader:
             if self.args.cuda:
-                data, target = data.cuda(async=self.args.async_loading), target.cuda(
-                    async=self.args.async_loading)
+                data, target = data.cuda(), target.cuda()
             data_var, target_var = Variable(data, volatile=True), Variable(target, volatile=True)
 
             # Forward pass

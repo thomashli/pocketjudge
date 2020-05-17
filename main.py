@@ -1,6 +1,6 @@
 import torch.backends.cudnn as cudnn
 
-from cifar10data import CIFAR10Data
+from pjdata import BenchPressData
 from model import MobileNetV2
 from train import Train
 from utils import parse_args, create_experiment_dirs
@@ -22,7 +22,7 @@ def main():
         cudnn.benchmark = True
 
     print("Loading Data...")
-    data = CIFAR10Data(config_args)
+    data = BenchPressData(config_args)
     print("Data loaded successfully\n")
 
     trainer = Train(model, data.trainloader, data.testloader, config_args)
