@@ -11,7 +11,7 @@ import pjdataset
 class StandardizeSizeTransform():
     def __init__(self):
         pass
-    
+
     def __call__(self, image):
         if image.shape == (3, 640, 640):
             return image
